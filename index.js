@@ -5,6 +5,7 @@ const port = process.env.PORT || 4000
 const User = require("./user/model")
 const Joke = require("./joke/model")
 const jokeRouter = require("./joke/router")
+const userRouter = require("./user/router")
 
 const bodyPaser = require("body-parser")
 const jsonParser = bodyPaser.json()
@@ -15,6 +16,7 @@ const jsonParser = bodyPaser.json()
 // 	})
 app.use(jsonParser)
 app.use(jokeRouter)
+app.use(userRouter)
 app.listen(port, () => {
 	console.log(`listening on port ${port}`)
 })
