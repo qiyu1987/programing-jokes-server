@@ -1,5 +1,4 @@
 const { Router } = require("express")
-const Sequelize = require("sequelize")
 const bcrypt = require("bcrypt")
 const User = require("./model")
 const router = new Router()
