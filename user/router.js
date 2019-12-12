@@ -6,7 +6,6 @@ const router = new Router()
 
 router.post("/users", async (req, res, next) => {
 	try {
-		console.log("post /users request")
 		const { username, password } = req.body
 		await User.create({
 			username,
