@@ -8,13 +8,13 @@ router.post("/users", async (req, res, next) => {
 	try {
 		console.log("post /users request")
 		const { username, password } = req.body
-		const user = await User.create({
+		await User.create({
 			username,
 			password: bcrypt.hashSync(password, 10)
 		})
 		res.status(201).send({ message: "user created successfully!" })
-	} catch {
-		next
+	} catch (err) {
+		next(err)
 	}
 })
 module.exports = router
