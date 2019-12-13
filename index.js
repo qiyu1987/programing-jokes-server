@@ -4,6 +4,7 @@ const port = process.env.PORT || 4000
 // const request = require("superagent")
 const User = require("./user/model")
 const Joke = require("./joke/model")
+require("./seeding")
 const jokeRouter = require("./joke/router")
 const userRouter = require("./user/router")
 const authRouter = require("./auth/router")
