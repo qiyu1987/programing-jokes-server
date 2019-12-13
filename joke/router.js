@@ -2,6 +2,7 @@ const { Router } = require("express")
 const Sequelize = require("sequelize")
 const Joke = require("./model")
 const router = new Router()
+const auth = require("../auth/middleware")
 router.get("/jokes/random", async (req, res, next) => {
 	try {
 		const joke = await Joke.findOne({ order: Sequelize.literal("random()") })
@@ -14,7 +15,7 @@ router.get("/jokes/random", async (req, res, next) => {
 		next(err)
 	}
 })
-router.post("/jokes", async (req, res, next) => {
+router.post("/jokes", auth, async (req, res, next) => {
 	try {
 		const joke = await Joke.create(req.body)
 		if (joke) {
